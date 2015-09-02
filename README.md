@@ -1,5 +1,5 @@
 # CSE12
-HW1: Introductory set up
+HW1: Introductory set up\n
 HW2: Creating a Linked list
 HW3: Benchmarking (searching)
 HW4: Data Structures (Deque, Queue Stack, DFS vs BFS)
