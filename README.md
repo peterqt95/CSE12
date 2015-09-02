@@ -1,9 +1,9 @@
 # CSE12
-HW1: Introductory set up\n
-HW2: Creating a Linked list
-HW3: Benchmarking (searching)
-HW4: Data Structures (Deque, Queue Stack, DFS vs BFS)
-HW5: Sorting Algorithms
-HW6: Data Structures (Heap)
-HW7: Data Structures (BST)
-HW8: Unicalc
+HW1: Introductory set up<br>
+HW2: Creating a Linked list<br>
+HW3: Benchmarking (searching)<br>
+HW4: Data Structures (Deque, Queue Stack, DFS vs BFS)<br>
+HW5: Sorting Algorithms<br>
+HW6: Data Structures (Heap)<br>
+HW7: Data Structures (BST)<br>
+HW8: Unicalc<br>
