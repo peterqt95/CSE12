@@ -1,0 +1,9 @@
+Q:Is it bigger than a breadbox?
+Q:Do you eat it with eggs?
+A:a mouse
+A:spam
+Q:Is it worth a lot of money?
+A:a bag of trash
+Q:Does it know Java?
+A:a house
+A:a computer scientist

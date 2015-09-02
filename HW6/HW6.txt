@@ -1,0 +1,28 @@
+CSE12 Homework 6
+NAME: Peter Tran
+PID: A11163016
+SECTION: A00
+DATE: 5/11/15
+
+1. If our mean time between arrivals is the same or greater than or equal to the service time in a non random case, that means that there will be no wait time because the arrival
+of the next customer will occur after the service is already completed for the prior customer.
+
+2. In the case that our mean time average is MUCH larger than the service time in a random case, it will produce the same results as question 1 with having no wait time. This is because
+in the case that our mean time average for example, was 100 and our service time was 1 then our average time between each customer will vary around 100 and since serving a customer
+only takes 1 then our next customer will arrive much later after the 1st customer has already left.
+
+3. Similarily in Question 2, the wait times will virtually be 0  when the same in the variable case when our mean service time is equal to our arrival time. This is because our customer
+arrival time varies around the given mean average as well as the service time, resulting in the customer being served roughly around the same time the next customer arrives which would
+result in 0 wait time.
+
+4. In either case, when our arrival time is less than the mean service time we will see that there will always be a wait time. This is because our customer will arrive but since the 
+service time will take longer than the next customer arrival time, the customer will still be served when the next customer arrives resulting in a wait time for each of the following
+customers.
+
+5. Now that we have changed the waitLine to a Heap, we now have a priority queue in place instead of a regular queue which prioritizes the service times of the customer. When we use a regular 
+queue, the first customer to come in is the first to come out, regardless of the service time meaning that a build up of wait time is more likely since we aren't prioritizing a way to minimize
+the wait line. But when we implement the priority queue which chooses to serve the customers with the shortest service times, we optimize the overall wait time customers have to go through. If we 
+have 2 customers that come in at the same time where one customer has a service time of 5 and the other has a service time of 10 and a 3rd customer arrives 1 later with a service time of 1, 
+the priority queue we implemented would chose the customer with a service time of 5 and then shortly after, serve the 3rd customer even though he/she arrived at a later time. By servicing the
+shorter service times, this also causes earlier customers that arrive who have longer service times have a longer wait time but ultimately minimizes the total wait time across the board. This 
+also means that we have longer queue lengths as well.

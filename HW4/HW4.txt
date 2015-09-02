@@ -1,0 +1,23 @@
+HW4
+
+Part 3A
+1. calls exposeCells
+2. MineCell - serves as an inner class that serves to act as a cell in the grid and keep track of its neighbors mined/visited
+   MineSweeperGUI - creates the visual implementation of the game that lets the user play and see the opening of the cells (no scores/timer kept)
+3. MineCell implements the MouseListener in order to implement the mouse actions
+4. exposeSlowly - helps delay the exposure rate of a cell, you can control the animation speed by changing the static int DELAY
+5. The actionPerformed in MineSweeperGUI is used to reset the game.
+
+Part 3C
+BFS - the breadth first search reveals the cells by first exposing all the neighboring cells and then moves onto the next "0" closest to the top
+of the neighboring cells and does the exact same thing by exposing all of its neighbors, continuing until it reaches the bottom of the unexposed cells.
+The functionality of this search is because of our implementation of the search using a Queue. By using a Queue, when we check for neighbors, we are 
+adding nodes that have not been visited to the end of the list and removing elements from the front of the list. This causes for our search to reveal
+all the node's neighbors and then retrieve the first node that we visited that has neighbors and continue the same process of revealing all of its neighbors.
+
+DFS - the depth first search reveals cells by going down a specific path until a non zero is reached and then goes back to the orignal "0" you clicked and
+rechooses a path to search down. If there is no path to search down from the original "0" you clicked, it will branch off the last 0 encountered while going
+down a specific path that had unvisited neighboring cells. The reason it goes down a specific path is because we are using a Stack implementation. What happens
+is that the last cell visited that was pushed onto a stack that was a "0" (since its checking for neighbors) will be popped off and once again going through
+the process of checking the node we just popped off for its unvisited neighbors. This in turn causes the "deep" search by following down a search path until
+we returned a node that has all of its neighbor visited, and then returning back to the stack to find a new path to search down.

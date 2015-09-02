@@ -1,0 +1,87 @@
+##CSE12 HW5
+##Author: Peter Tran
+##PID: A11163016
+##LOGIN: cs12sho
+##pqt001@ucsd.edu
+
+General Results
+
+Alpha: selectionsort
+
+	Rationale:
+		If we choose list sizes of 200, 400, 800 while sorted, we can see that we have 19900, 79800, 319600 comparissons respectively.
+		We see that as we double the size of the list that the number of comparissons required quadruples so this must have an O(n^2) time complexity.
+		If we choose list sizes of 200, 400, 800 while sorted randomly, we can see that we have (19900, 597) , (79800,1197) , (319600,2397) where we have this 
+		representation meaning (# of comparissons, # of movements).
+		Seen from this, when we double the size of our list, the number of comparissons remain the same with a small addition of movements required, so we can
+		say that when it is sorted randomlly that it has a time complexity of O(n^2).
+		Since both the worst case and best case run with the same time complexity of O(n^2) we can conclude that this sorting algorithm must be selectionsort.
+
+Beta: insertionsort
+
+	Rationale:
+		If we choose list sizes of 200, 400, 800 while sorted, we can see that we have (199,398) , (399,798) , (799,1598) where this reprsentation
+		means (# of comparissons, # of movements).
+		As we can tell, as the list size doubles, the # of comparissons and # of movements double, showing that in the best case there is a O(n)
+		time complexity.
+		If we choose list sizes of 200, 400, 800 while sorted randomly, we can see that we have (10596,10801) , (41311,41717) , (161596,162401) where we have this same reprsentation
+		means (# of comparissons, # of movements).
+		As we see, as the list size doubles the growth in the number of movements quadruple showing that this must have an O(n^2) time complexity.
+		From these comparissons, in the worst case we see an O(n^2) time complexity and in the best case we have an O(n) time complexity. The reason that this is not
+		bubblesort is that we can tell that the number of movements in the best case is not 0, so thus it must be insertion sort given these time complexities.
+
+Gamma: checksort 
+	
+	Rationale: 
+		If we choose list sizes 2, 4, 8 while sorted, we can see that we have 1, 3, 7 comparisons respectively.
+		As the list size doubles we get a double in comparisson as well.
+		If we choose list sizes 2, 4, 8 arranged randomly, we see significant growth in comparissons from 4 25 to 65521.
+		From this, we can tell that as the list size doubles, the number of comparissons definetly do not double and rather grow
+		significantlly. 
+		This means that we must be using checksort with an O(n) time complexity when the list is sorted and an O(n!) time complexity when the
+	        list is randomlly sorted.
+		
+Delta: bubblesort
+
+	Rationale:
+		If we choose list sizes of 200, 400, 800 while sorted, we can see that we have 200, 400, 800 comparissons respectively.
+		We can see that as we double the size of our list that the number of comparissons made double as well so we can conclude that while the list
+		is sorted that there is an O(n) time complexity.
+		If we choose list sizes of 200, 400, 800 while sorted randomly, we can see that we have (38800, 29238) , (156000,126285) , (628000,476408) where we have this 
+		representation meaning (# of comparissons, # of movements) and run at 1s, 3s, and 12s respectively.
+		We can see that as the list size doubles, that the total number of comparissons and movements as well as the run time approximately quadruple, so we can
+		conclude that when the list is sorted randomly that the run time complexity is of O(n^2).
+		Given this information, we can tell that in the best case we have an O(n) time complexity and in the worst case we have an O(n^2) time complexity. We can conclude
+		that this sort is bubblesort because as we analyze the best case, bubblesort should make no movements since the list is already sorted and simply only comparissons.
+
+Epsilon: mergesort
+
+	Rationale:
+		If we choose list sizes of 200, 400, 800 while sorted, we can see that we have (812, 3088) , (1824,6976) , (4048,15552) where we have this 
+		representation meaning (# of comparissons, # of movements).
+		If we choose list sizes of 200, 400, 800 while sorted randomly, we can see that we have (1272, 3088) , (2986,6976) , (6689,15552) where we have this 
+		representation meaning (# of comparissons, # of movements).
+		We can see that in both these cases, that as the list size doubles there is growth in the number of comparissons and movements by a little over double
+		meaning that the time complexity for both these cases are O(nlogn). Whether it is the best/worst/average case, it has all the same run time complexity
+		as O(nlogn) so this must be mergesort.		 
+
+Zeta: quicksort
+	
+	Rationale:
+		If we choose list sizes of 200, 400, 800 while sorted, we can see that we have (20298, 199) , (80598,399) , (321198,799) where we have this 
+		representation meaning (# of comparissons, # of movements).
+		As we can see as the list size doubles, the number of comparissons approximately quadruple so when the list is sorted there is a O(n^2) time complexity.
+		This is because the worst case for quicksort is when the elements are sorted, meaning that the smallest element is at the front of the list.
+		If we choose list sizes of 200, 400, 800 while sorted randomly, we can see that we have (2290, 1294) , (5363,2886) , (12102,6202) where we have this 
+		representation meaning (# of comparissons, # of movements).
+		We can see that as the list size doubles, the number of comparissons and movements grow a little over double, so we can say that there is a run time
+		complexity of O(nlogn).
+		From both these situations, we can conclude that this is quicksort because when the list is sorted, which places the pivot in the worst case for quicksort
+		it causes the O(n^2) growth rate and for its best/average case that it runs at O(nlogn) time complexity so this must be quicksort.
+
+
+
+
+ 
+
+

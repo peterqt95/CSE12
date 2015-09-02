@@ -1,0 +1,262 @@
+CSE 12 Homework 3
+NAME: Peter Tran
+PID: A11163016
+SECTION: A00
+April 15, 2015
+
+Part 1A)
+1. True
+2. True
+3. False
+4. False
+5. False
+6. True
+7. False
+8. True
+9. False
+10. False
+11. True
+12. True
+13. True
+14. True
+15. False
+16. True
+17. False
+18. True
+
+Part 1B)
+
+1. Running Time: O(n)
+   Explanation: There is a loop that runs n/2 + 1 times which executes 2 instructions per loop.
+		So the total number of instrutions should be 2*(n/2)+1 or (n+1) instructions.
+
+2. Running Time: O(log(n))
+   Explanation: This loop runs log(n) times executing 2 instructions per loop. The total number
+		of instructions should be 2*log(n) instructions. The loop increments by a factor
+		of 2 everytime, so it runs log(n) instructions, and specifically in this case,
+		with a log of base 2.
+
+3. Running Time: O(n^2)
+   Explanation: The outer loops runs n times where the inner loop runs n times, so a total of n^2 
+		instructions per loop.  Since inner loop runs 2 instructions, a more accurate statement
+		would be that the total number of instructions would be 2n*n or 2n^2 instructions.
+
+4. Runnin Time: O(n)
+   Explanation: The first loop runs 2 instructions n times and the second loop does the exact same thing.
+		This means that there is a total of 2n+2n or 4n instructions executed.
+
+5. Running Time: O(n)
+   Explanation: The loop runs 2*n times while executing a total of 2 instructions per cycle. This means
+		that the total number of instructions executed would be 2*(2n) or 4n instructions executed.
+
+6. Running Time: O(n^2)
+   Explanation: The loop runs n*n times while executing a total of 2 instructions per cycle. This means 
+		that the total number of instructions executed would be 2*n*n or 2*n^2 instructons.
+
+7. Running Time: O(n^3)
+   Explanation: The outer loop runs n times and the inner loop runs a total of n*n times with a total of 2 
+		instructions per cycle. So the total number of instructions executed would be n*(2*n*n) or
+		2*n^3 instructions executed.
+
+8. Running Time: O(n)
+   Explanation: The outer loop runs n times and the inner loop runs a total of 10000 times with a total of 2
+		instrutions per cycle. So the total number of instructions executed would be n*(2*10000) or
+		20000*n instructions.
+
+Part 2
+
+1. Running Time: Omega(n)
+   Explanation: In order to make a copy of the list, we have the head pointing at the start of the list and must
+		scan over every element in the list until it reaches the end or tail. Thus, if we denote the list
+		size as n, we would need to scan over n elements and then adding the elements into a new list. Adding 
+		the elements to the end of the list take all of approximately 10 steps (creating a new node, setting the 
+		previous element to point to the new node and the node pointing back to it) regardless of list size
+		so the total number of instructions in a best case would be 10*n instructions to copy a list and 
+		10*n = Omega(n).
+
+2. Running Time: Omega(1)
+   Explanation: If we add a value to the end of the list, it does not depend on the list size because we are dealing 
+		with a doubly linked list which means we have a pointer to the tail or the end of the list. All we have
+		to do is create a new node and set the references between the tail and the new node and the new node's
+		previous node.  All of this would take all of 10 steps to perform, so 10 = Omega(1).
+
+3. Running Time: Omega(1)
+   Explanation: If we are to remove the first value of the list which becomes independant of the list's size, we have to
+		redirect the head's referenes as well as the 2nd node in the list to reference one another all of which
+		would take 10 steps, so 10 = Omega(1).
+
+4. Running Time: Omega(1)
+   Explanation: If we are to remove the last value from the list, which becomes independant of the list's size since we
+		have a tail referencing to the last element in the list, all we require is that we redirect the tail's
+		references as well as the 2nd to the last node in the list to reference one another in order to remove
+		the last element in the list. This would take all of 10 steps to perform so, 10 = Omega(1).
+
+5. Running Time: Omega(n)
+   Explanation: If we are to find an element containing the value V in the list, it depends on the list size. So if the
+		list is of size n, we may have to traverse through the whole list in order to check all possible locations
+		where the value V is. To check whether the element is there takes ~3-5 steps but we must do this n times.
+		So the total number of instructions we must run is 5*n instructions so, 5*n = Omega(n).
+
+Part 3
+
+1A. wc -w medium-wordlist.txt
+Ouput: 119805 medium-wordlist.txt
+
+1B.
+
+main()
+    doLoops(MyLinkedList, wordlist, input file, loop bounds and steps)
+        for(step times){
+	    doWork(storage, wordlist, document, numwords){
+		readDictionary(storage, wordlist){
+		    storage.add(word)
+		start = System.currentTimeMillis()
+		while(input.hasNext() && counter < numwords){
+		    if(item.contains(word))
+		        goodwords.add(word)
+		    else
+			badwords.add(word)
+		}
+		end = System.currentTimeMillis()
+	    }
+	}
+    doLoops(MRUList, <same parameters as previous call>)
+	<Does same steps as previous method call except with MRUList>
+
+1C. The HashSet is defined in java.util.* and implements the collection and iterable interfaces. Since goodwords is a HashSet,
+it only adds unique words to itself which would differ in size from good which counts every word added.
+
+1D. No because the contain method in the MyLinkedList and MRUList simply traverses a list until it finds it element. Since
+our list is partially sorted in alphabetical order, if we were to search for an element starting with the letter z, both lists
+would end up traversing all the way to the end of the list to find its element. On the other hand, if the element starts with
+the letter a, we will only traverse the list for a bit until we find our desired element. Even if the list was not sorted alphabetically
+we would still end up traversing the list from the start to the end until we can find the element desired, with results varying
+from the best to worst case scenarios. Overall, the way the elements are sorted alphabetically in the list become independent of performance 
+time because our contain method in both the MyLinkedList and MRUList does not have a specific alphabetic search method to optimize performance.
+
+2. (i5-3.5GHz) java hw3.CollectionTimer small-worldlist.txt pride-and-prejudice.txt 6000 6000 5 5 
+Wordlist: small-wordlist.txt  Document: pride-and-prejudice.txt
+Class: MyLinkedList
+======================================
+1:    6000 words in     331 milliseconds 
+2:   12000 words in     561 milliseconds 
+3:   18000 words in     824 milliseconds 
+4:   24000 words in    1075 milliseconds 
+5:   30000 words in    1337 milliseconds 
+
+Wordlist: small-wordlist.txt  Document: pride-and-prejudice.txt
+Class: MRUList
+======================================
+1:    6000 words in     201 milliseconds 
+2:   12000 words in     298 milliseconds 
+3:   18000 words in     385 milliseconds 
+4:   24000 words in    	508 milliseconds 
+5:   30000 words in    	616 milliseconds 
+
+3. As the size of our m doubles, we can see from plotting our data onto a graph that there is linear growth from both lists. That means as 
+the number of words begin to double so does the time it takes to run each time. Both the MyLinkedList and MRUList hold a linear
+growth despite the fact that the MRUList runs faster than the MyLinkedList because the number of steps taken to execute the program
+follow the same method calls, where one would simply take less steps than the other. If we look at the number of words for MyLinkedList
+at 6000 12000 and 24000 we can see that as the size of the word list doubles our time approximately doubles, 331 561 1075. However for the MRUList
+it seems that the time it takes as the number of sizes double, the growth is not the same. Although it grows linearly, the MRUList time does not
+double as the size doubles, but at about half the growth rate i.e: 201 298 385 are all around 1/2 the growth time as our MyLinkedList as the 
+number of words double. This is because we can see that the MRUList is able to pull up words most recenetly used to shorten search times.
+
+4. (i5-3.5GHz) java hw3.CollectionTimer medium-worldlist.txt pride-and-prejudice.txt 1000 1000 10 10 
+Wordlist: medium-wordlist.txt  Document: pride-and-prejudice.txt
+Class: MyLinkedList
+======================================
+1:    1000 words in    2414 milliseconds 
+2:    2000 words in    5214 milliseconds 
+3:    3000 words in    8571 milliseconds 
+4:    4000 words in   12033 milliseconds 
+5:    5000 words in   14724 milliseconds 
+6:    6000 words in   18768 milliseconds 
+7:    7000 words in   20318 milliseconds 
+8:    8000 words in   22473 milliseconds 
+9:    9000 words in   24101 milliseconds 
+10:  10000 words in   26305 milliseconds 
+
+Wordlist: medium-wordlist.txt  Document: pride-and-prejudice.txt
+Class: MRUList
+======================================
+1:    1000 words in    1155 milliseconds 
+2:    2000 words in    2216 milliseconds 
+3:    3000 words in    3133 milliseconds 
+4:    4000 words in    4015 milliseconds 
+5:    5000 words in    5020 milliseconds 
+6:    6000 words in    5486 milliseconds 
+7:    7000 words in    5598 milliseconds 
+8:    8000 words in    5680 milliseconds 
+9:    9000 words in    5750 milliseconds 
+10:  10000 words in    5936 milliseconds 
+
+
+It increases the time it takes for the program to run because the size of the dictionary we are using has grown significantly larger.
+This means that when the dictionary is read in there are 10x more words to read in than the small-wordlist which also means that in the worst
+case scenario where we must search the entire medium-wordlist to find a specific word has dramatically increased as well. The overall performance
+rate seems roughly the same as using the small word list, with times increasing at the same factor as the number of words being searched for increase.
+However when we look at the MRUList, which places recently searched for words in the front of the list because it is most likely to be searched for again,
+it begins to decrease its growth rate. After the number of words increased inside our library, we can now see that it takes less time to travel through
+such a large list because it has placed some of the items it will search for closer to the front of the list. This creates what seems close to a 
+logarithmic growth time after looking at our data.
+
+5. (i5-3.5GHz) java hw3.CollectionTimer pride-and-prejudice.txt pride-and-prejudice.txt 2000 2000 20 10 
+
+Wordlist: pride-and-prejudice.txt  Document: pride-and-prejudice.txt
+Class: MyLinkedList
+======================================
+1:    2000 words in      10 milliseconds 
+2:    4000 words in      30 milliseconds 
+3:    6000 words in      58 milliseconds 
+4:    8000 words in      91 milliseconds 
+5:   10000 words in     141 milliseconds 
+6:   12000 words in     191 milliseconds
+7:   14000 words in     227 milliseconds
+8:   16000 words in     310 milliseconds
+9:   18000 words in     348 milliseconds
+10:  20000 words in     464 milliseconds
+11:  22000 words in     560 milliseconds
+12:  24000 words in     764 milliseconds
+13:  26000 words in     830 milliseconds
+14:  28000 words in     865 milliseconds
+15:  30000 words in    1019 milliseconds
+16:  32000 words in    1181 milliseconds
+17:  34000 words in    1242 milliseconds
+18:  36000 words in    1489 milliseconds
+19:  38000 words in    1579 milliseconds
+20:  40000 words in    1788 milliseconds
+
+Wordlist: pride-and-prejudice.txt  Document: pride-and-prejudice.txt
+Class: MRUList
+======================================
+1:    2000 words in     648 milliseconds 
+2:    4000 words in    1279 milliseconds 
+3:    6000 words in    1543 milliseconds 
+4:    8000 words in    2382 milliseconds 
+5:   10000 words in    2648 milliseconds 
+6:   12000 words in    3550 milliseconds
+7:   14000 words in    3621 milliseconds
+8:   16000 words in    4086 milliseconds
+9:   18000 words in    4275 milliseconds
+10:  20000 words in    5696 milliseconds
+11:  22000 words in    5750 milliseconds
+12:  24000 words in    5824 milliseconds
+13:  26000 words in    6253 milliseconds
+14:  28000 words in    6466 milliseconds
+15:  30000 words in    7215 milliseconds
+16:  32000 words in    8606 milliseconds
+17:  34000 words in    8915 milliseconds
+18:  36000 words in    9276 milliseconds
+19:  38000 words in    10254 milliseconds
+20:  40000 words in    10932 milliseconds
+
+
+In the case where we use the dictionary as pride-and-prejudice we see a flip in performance between MyLinkedList and the MRUList. When we read
+in the dictionary for MyLinkedList it will insert each word at the end of the list which would ultimately have the dictionary and the list matching
+in order. This allows for searching through the list much faster to see if the word is contained there because the list and dictionary match. This however
+only occurs at the beginning and starts to grow exponenetially as we must begin to traverse through the entire dictionary to match the words at the end
+of the list. On the other hand, when we look at the MRUList, its run times become significantly longer because the pride-and-prejudice.txt stored in the dictionary
+is in reverse order. This means that the MRUList must spend time searching through the list because the words do not appear as easily at the beginning of the list
+when compared to the case that the MyLinkedList is being used. The growth rate of the MRUList becomes linear and is thus, a slower growth rate than the MyLinkedList.
+
